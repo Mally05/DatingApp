@@ -1,0 +1,12 @@
+.dropdown-toggle, .dropdown-item, .dropdown{
+    cursor: pointer;
+}
+
+#loginForm{
+    position: absolute;
+    right: 0.3em;
+}
+
+#navbar{
+    background-color: #FF00FF !important;
+}
