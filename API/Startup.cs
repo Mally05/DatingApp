@@ -7,6 +7,7 @@ using API.Data;
 using API.Data.Services;
 using API.Extentions;
 using API.Interfaces;
+using API.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +26,6 @@ namespace API {
         private readonly IConfiguration _config;
         public Startup (IConfiguration config)
         {
-           
             _config = config;   
         }
 
@@ -45,11 +45,16 @@ namespace API {
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
+            
             if (env.IsDevelopment()) {
-                app.UseDeveloperExceptionPage ();
+               // app.UseDeveloperExceptionPage ();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint ("/swagger/v1/swagger.json", "API v1"));
             }
+
+            //this handles the errors
+            
+            app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseHttpsRedirection();
 

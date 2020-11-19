@@ -1,0 +1,17 @@
+<h4>Internal server error - refresing the page will help you kid</h4>
+
+<ng-container *ngIf="error">
+     <h5 class="text-danger">Error: {{error.message}}</h5>
+     <p class="font-weight-bold">What have you got yourself in to?</p>
+     <p>Okay what to do next?</p>
+
+     <ol>
+         <li>opden dev chrome tools</li>
+         <li>inspect network log</li>
+         <li>check the failing rewuest</li>
+         <li>Make sure your examination is correct</li>
+         <li>Check postman</li>
+    </ol>
+    <p>Start your investigaion in this following stack!</p>
+    <code class="mt-5" style="background-color: whitesmoke;">{{error.details}}</code>
+</ng-container>
