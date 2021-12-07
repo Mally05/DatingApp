@@ -47,7 +47,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               const navigationExtras: NavigationExtras = {state: {error: error.error}};
               this.router.navigateByUrl('/server-error', navigationExtras);
               break;
-            default:
+             default:
               this.toastr.error('Something went wrong. We are aware of it! :)');
               console.log(error);
               break;
