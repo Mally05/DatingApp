@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace API.DTOs
 {
     public class UpdateMemberDto
@@ -8,6 +10,6 @@ namespace API.DTOs
         public string LookingFor { get; set; }
         public string City { get; set; }
         
-        
+        public ICollection<PhotoDto> Photos { get; set; }
     }
 }
