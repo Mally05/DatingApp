@@ -13,8 +13,6 @@ namespace API.Entities
         // AppUserId to be set to Null.
         public AppUser AppUser { get; set; }
         public int AppUserId { get; set; }
-        
-        
-        
+                      
     }
 }

@@ -5,8 +5,8 @@ img.img-thumbnail{
 }
 
 .nv-file-over{
-    border: solid blue;
-    box-shadow: blue;
+    border: dotted red;
+    
 }
 
 input[input="file"]{

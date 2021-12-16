@@ -6,3 +6,9 @@
     position: absolute;
     right: 0.3em;
 }
+
+img{
+    max-height: 50px;
+    border: 2px solid #fff;
+    display: inline;
+}
