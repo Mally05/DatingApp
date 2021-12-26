@@ -6,7 +6,7 @@ export interface Member {
   age: number;
   lastActive: Date;
   created: Date;
-  knownAs: string;
+  knownAs?: string;
   gender: string;
   lookingFor: string;
   introduction: string;

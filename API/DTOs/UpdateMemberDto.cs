@@ -10,6 +10,6 @@ namespace API.DTOs
         public string LookingFor { get; set; }
         public string City { get; set; }
         
-        public ICollection<PhotoDto> Photos { get; set; }
+        // public ICollection<PhotoDto> Photos { get; set; }
     }
 }

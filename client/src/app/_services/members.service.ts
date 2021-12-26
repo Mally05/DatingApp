@@ -31,7 +31,7 @@ export class MembersService {
   }
 
   updateMember(member: Member){
-    return this.http.put(this.baseUrl + 'users', member).pipe(
+    return this.http.put(this.baseUrl + 'users/', member).pipe(
       map(() => {
         // This finds the index of the specific member we are looking to update
         const index = this.members.indexOf(member);
