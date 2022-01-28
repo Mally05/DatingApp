@@ -4,7 +4,6 @@ import { of } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { threadId } from 'worker_threads';
-import { LikesParams } from '../_models/likesParams';
 import { Member } from '../_models/member';
 import { PaginatedResults } from '../_models/pagination';
 import { User } from '../_models/user';
@@ -20,7 +19,7 @@ export class MembersService {
   memberCache = new Map();
   user: User;
   userParams: UserParams;
-
+  
   constructor(private http: HttpClient, private accountService: AccountService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => {
       this.user = user;
@@ -89,18 +88,8 @@ export class MembersService {
     return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
   }
 
-  addLike(username: string){
-    return this.http.post(this.baseUrl + 'likes/' + username,{});
-  }
-                                                 
-  getLikes(predicate: string, pageNumber, pageSize){
-    let params = this.getPaginationHeaders(pageNumber,pageSize);
-    
-    params = params.append('predicate', predicate);
-    return this.getPaginatedResults<Partial<Member[]>>(this.baseUrl + 'likes/',params,);
-  }
   private getPaginatedResults<T>(url, params) {
-    
+
     const paginatedResults: PaginatedResults<T> = new PaginatedResults<T>();
     return this.http.get<T>(url, { observe: 'response', params }).pipe(
       map(response => {
@@ -113,7 +102,7 @@ export class MembersService {
     );
   }
 
-  private getPaginationHeaders(pageNumber: number, pageSize:number){
+  private getPaginationHeaders(pageNumber: number, pageSize: number){
 
     let params = new HttpParams();
 
